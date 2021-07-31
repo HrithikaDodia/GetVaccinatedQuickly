@@ -17,7 +17,7 @@ def prepare_info(vaccine_response, area, min_age_limit):
     for i in range(len(centers)):
         info = centers[i]
         for session in info['sessions']:
-            if session['min_age_limit'] == min_age_limit and session['available_capacity_dose1'] and area in info['address'].lower():
+            if session['min_age_limit'] == int(min_age_limit) and session['available_capacity_dose1'] > 0 and area in info['address'].lower():
                 vaccine_fee = {}
                 vaccine_info = {}
                 if not info['fee_type'] == 'Free':
